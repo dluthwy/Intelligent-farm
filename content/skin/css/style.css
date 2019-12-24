@@ -1,0 +1,96 @@
+﻿body {font-family:"microsoft yahei",simsun,Tahoma,sans-serif;color: #fff;margin: 0;padding: 0;font-size: 22px;}
+body::-webkit-scrollbar {display: none;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+ol,ul {list-style:none; }
+h1,h2,h3,h4,h5,h6,button,input,select,textarea {font-size:100%;}
+.main-content{position: absolute; width: 100%; height: 100%;}
+.bgimg{width: 100%; height: 100%;position: absolute; left: 0; top: 0; z-index: -1}
+table{width: 100%;height: 100%;}
+.main-content{padding: 10px;background: url(../images/mainface_moon.png); left: 0; top: 0;z-index: -1;}
+.head-top{width: 100%; height: 100%; position: relative; min-height: 100px;}
+.head-top .logo{position: absolute; margin-left: 2%; top: 5px;height: 100%;}
+.head-top .time{text-align:center}
+.tmbg{background: url('../images/bg-tm.png');width: 100%; height: 100%}
+.middle-box{height: 95%; width: 100%;}
+.middle-box .quxian{border-radius: 15px; min-height: 200px;}
+
+.item-box{width: 98%; overflow: hidden; position: relative; height: 100%; padding: 5px;}
+.item-box .item{float: left;border-radius: 15px;margin: 0 15px 0px 0; width: 128px; height: 130px;}
+.item-box .item .info{padding: 19px 0;text-align: center;}
+.item-box .item .info .title{font-weight:bold}
+.item-box .item .info .unit{ font-weight: bold;font-size: 15px}
+.item-box .item .value{ text-align: center; font-weight: bold;font-size: 35px}
+.item-btn{width: 100%; position: absolute; height: 100%; padding: 5px; margin-left: 65%;}
+.item-btn .item{width: 100px;height: 30px;transition-duration: 0.4s; border: 0px; background: rgba(255, 255, 255, 0.1); outline: none; font-family: Microsoft YaHei; color: white; font-size: 17px;}
+.item-btn .item:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);background-color: #4CAF50;}
+
+.weather ul li{ font-size: 18px;color: #bde5fd;line-height: 30px}
+.zhibiao .title td{ vertical-align: top;}
+.zhibiao .zhibiao-color{min-width: 30px;height: 20px;display: block;border-radius: 3px}
+.zhibiao .zhibiao-title{width: 30px; display: inline-block; font-size: 16px;}
+
+.footer{clear: both; padding-left: 2%;}
+.footer .title{font-weight: bold; font-size: 20px;}
+
+
+.mui-switch {
+    width: 52px;
+    height: 31px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none; 
+}
+.mui-switch:before {
+    content: '';
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); 
+}
+.mui-switch:checked {
+    border-color: #64bd63;
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63; }
+
+    .mui-switch:checked:before {
+    left: 21px; }
+    
+.mui-switch.mui-switch-animbg {
+    transition: background-color ease 0.4s; }
+    .mui-switch.mui-switch-animbg:before {
+    transition: left 0.3s; }
+    .mui-switch.mui-switch-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: #64bd63;
+    transition: border-color 0.4s, background-color ease 0.4s; }
+    .mui-switch.mui-switch-animbg:checked:before {
+        transition: left 0.3s; }
+.mui-switch.mui-switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s; }
+    .mui-switch.mui-switch-anim:before {
+    transition: left 0.3s; }
+    .mui-switch.mui-switch-anim:checked {
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s; }
+    .mui-switch.mui-switch-anim:checked:before {
+        transition: left 0.3s; }

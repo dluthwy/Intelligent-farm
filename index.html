@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>智能农场控制中心</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="content/skin/css/style.css">
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="shortcut icon" href="content/logo.ico">
+</head>
+<body style="height: 100%; width: 100%">
+    <div class="main-content" id="maincontent">
+        <table class="content">
+            <tr style="height: 15%">
+                <td>
+                    <div class="head-top">
+                        <div class="logo">
+                            <img src="content/skin/images/logo.png" style="height: 85px" />
+                        </div>
+                        <div class="time" id="DataTime">
+                            -- -- --/--/--
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 75%">
+                <td style="vertical-align: text-top">
+                    <table>
+                        <tr>
+                            <td style="width: 70%; min-width: 520px; vertical-align: text-top;overflow: hidden" id="dynamic-showbox">
+                                <div class="showbox" style="width: 100%; height: 100%; " id="showbox-0">
+                                        <table style="padding-left: 2%; vertical-align: top;" id="59053893-box" page="0">
+                                            <tr style="height: 70%; vertical-align: top">
+                                                <td style="vertical-align: top">
+                                                    <div class="middle-box">
+                                                        <div class="tmbg quxian" id="plotarea">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                <tr style="height: 30%;">
+                                                    <td style="vertical-align: top">
+                                                    <div class="item-box">
+                                                        <div style="width: 100%; position: relative; transition-duration: 0s;">
+                                                                <div class="item tmbg" style="height: 100%;margin:0 20px 0 0">
+                                                                    <div class="info">
+                                                                        <span class="title" id="59053893-HUMI-title">HUMI</span>
+                                                                        <small class="unit" id="59053893-HUMI-unit">%</small>
+                                                                    </div>
+                                                                    <div class="value" id="59053893-HUMI-value"  >--</div>
+                                                                            <div class="value" style="font-size:12px;margin:5px 0"> </div>
+                                                                            <div class="value" id="59053893-HUMItxt">舒 适</div>
+                                                                </div>
+                                                                <div class="item tmbg" style="height: 100%;margin:0 20px 0 0">
+                                                                    <div class="info">
+                                                                        <span class="title" id="59053893-TEMP-title">TEMP</span>
+                                                                        <small class="unit" id="59053893-TEMP-unit">℃</small>
+                                                                    </div>
+                                                                    <div class="value" id="59053893-TEMP-value"  >--</div>
+                                                                            <div class="value" style="font-size:12px;margin:5px 0"> </div>
+                                                                            <div class="value" id="59053893-TEMPtxt">舒适</div>
+                                                                </div>
+                                                                <div class="item-btn">
+                                                                        <button class="item" onclick="getData(2)">10天</button>
+                                                                        <button class="item" onclick="getData(1)">24小时</button>
+                                                                        <button class="item" onclick="getData(0)">1小时</button>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                        </table> </div>
+                            </td>
+                            <td style="width: 30%; min-width: 240px; top: 0; right: 0; position: relative; vertical-align: top;">
+                                <table>
+                                    <tr>
+                                        <td style="position: relative;">
+                                            <div style="top: 0;">
+                                                <img id="weatherlogo" src="content/skin/images/moon.png" style="width: 50%; padding-left: 15%; margin-top: -120px" id="weatherpic" title="晴" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td style="width: 65%; padding-left: 10%">
+                                                        <div class="weather">
+                                                            <ul>
+                                                                <li>
+                                                                    <i></i>温度设定：<b id="tempset">0</b>℃
+                                                                </li>
+                                                                    <input type="range" id="tempslider" value="0" onchange="tempChange()" style="width: 80%;margin-bottom: 3vw;margin-top: 1vw;"/>
+                                                                <li>
+                                                                    <i></i>湿度设定：<b id="humiset">0</b>%
+                                                                </li>
+                                                                <li>
+                                                                    <input type="range" id="humislider" value="0" onchange="humiChange()" style="width: 80%;margin-bottom: 3vw;margin-top: 1vw;"/>
+                                                                </li>
+                                                                <li>
+                                                                    <i></i>自动补光
+                                                                </li>
+                                                                <li>
+                                                                    <input id="autolight" class="mui-switch mui-switch-animbg" type="checkbox" checked>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 10%">
+                <td>
+                    <div class="footer" style="display:none">
+                        <span class="title">健康提示：</span>
+                        <small id="tishi"></small>
+                        <span class="title">建议措施：</span>
+                        <small id="cuoshi"></small>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+<script>
+    //温湿度设置
+    var otempSet = document.getElementById("tempset");
+    var ohumiSet = document.getElementById("humiset");
+    //滑块值
+    var otempSlider = document.getElementById("tempslider");
+    var ohumiSlider = document.getElementById("humislider");
+    //温度改变
+    function tempChange(){
+        otempSet.innerHTML = otempSlider.value;
+    }
+    //湿度改变
+    function humiChange(){
+        ohumiSet.innerHTML = ohumiSlider.value;
+    }
+</script>
+<script src="content/skin/js/jquery.js"></script>
+<script src="content/skin/js/highcharts.js"></script>
+<!-- <script src="content/skin/js//skincommon.js?dt=201706261450"></script> -->
+<script>
+    //当前数据库中的设置信息
+    var curDBSet = {"TempSet":"30", "HumiSet":"70", "AutoLight":"1"};
+
+    var titles = ["1小时内", "24小时内", "10天内"];
+    $(function () {
+        Highcharts.setOptions({ global: { useUTC: false } });
+
+        //初始化设置
+        getConfigSet();
+        //获取最新数据更新
+        getLatestUpdate();
+        //初始化显示
+        InitShowBoxSize();
+        //获取数据
+        getData(1);
+
+        //定时获取最近数据更新
+        setInterval(getLatestUpdate, 5000);
+        //定时检测设置更新
+        setInterval(checkSetChange, 2000);         
+    });
+
+    //获取设置信息
+    function getConfigSet(){
+        $.ajax({
+            type: "GET",
+            url: "handle/getConfigSet.php",
+            dataType: "json",
+            success: function(data){
+                curDBSet = data;
+                document.getElementById("tempset").innerHTML = data.TempSet;
+                document.getElementById("tempslider").value = data.TempSet;
+                document.getElementById("humiset").innerHTML = data.HumiSet;
+                document.getElementById("humislider").value = data.HumiSet;
+                document.getElementById("autolight").checked = data.AutoLight > '0';
+            },
+            error: function(data){
+                console.log("获取设置信息出错");
+            }
+        })
+    }
+    
+    //检查设置变化
+    function checkSetChange(){
+        var TempSet = document.getElementById("tempslider").value;
+        var HumiSet = document.getElementById("humislider").value;
+        var AutoLight = null;
+        if(document.getElementById("autolight").checked){
+            AutoLight = "1";
+        }else{
+            AutoLight = "0";
+        }
+        if(TempSet != curDBSet.TempSet || HumiSet != curDBSet.HumiSet || AutoLight != curDBSet.AutoLight){
+            updateConfigSet(TempSet, HumiSet, AutoLight);
+            curDBSet.TempSet = TempSet;
+            curDBSet.HumiSet = HumiSet;
+            curDBSet.AutoLight = AutoLight;
+        }
+    }
+
+    //更新设置信息
+    function updateConfigSet(TempSet, HumiSet, AutoLight){
+        var url = "handle/updateConfigSet.php?TempSet="+TempSet+"&HumiSet="+HumiSet+"&AutoLight="+AutoLight;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(data){
+                console.log("更新设置信息成功");
+            },
+            error: function(data){
+                console.log("更新设置信息失败");
+            }
+        })
+    }
+
+    //获取最近更新数据
+    function getLatestUpdate(){
+        $.ajax({
+            type: "GET",
+            url: "handle/getLatestUpdate.php",
+            dataType: "json",
+            success: function(data){
+                $("#59053893-HUMI-value").text(data.Humi);
+                $("#59053893-TEMP-value").text(data.Temp);
+                InitItemShowColor(59053893, "HUMI", parseInt(data.Humi));
+                InitItemShowColor(59053893, "TEMP", parseInt(data.Temp));
+                $("#DataTime").html("Latest Update: " + data.Time);
+                var oWeatherLogo = document.getElementById("weatherlogo");
+                var oMainContent = document.getElementById("maincontent");
+                //改变背景
+                if(data.Light > '0'){
+                    oWeatherLogo.src = "content/skin/images/sun.png" + "?timestamp=" + Date();
+                    oMainContent.style.backgroundImage = "url(content/skin/images/mainface_sun.png)";
+                }else{
+                    oWeatherLogo.src = "content/skin/images/moon.png" + "?timestamp=" + Date();
+                    oMainContent.style.backgroundImage = "url('content/skin/images/mainface_moon.png')";
+                }
+            },
+            error: function(data){
+                console.log("获取最近数据信息出错");
+            }
+        })
+    }
+
+    //显示等级颜色信息
+    function InitItemShowColor(deviceID,item,itemValue){
+        //dynamic-showbox
+        var showtxt="";
+        var tempSet = parseInt(curDBSet.TempSet);
+        var humiSet = parseInt(curDBSet.HumiSet);
+        if(tempSet < 5){
+            tempSet = 5;
+        }
+        if(humiSet < 10){
+            humiSet = 10;
+        }
+        if(item=="TEMP"){
+            if(itemValue >=0 && itemValue < tempSet-5){
+               showtxt= "偏冷";
+            $("#"+deviceID+"-"+item+"txt").css("color","#1E90FF");
+            }else if(itemValue >= tempSet-5 && itemValue <= tempSet+5){
+               showtxt= "舒适";
+            $("#"+deviceID+"-"+item+"txt").css("color","#92D050");
+            }else if(itemValue > tempSet+5){
+               showtxt= "偏热";
+            $("#"+deviceID+"-"+item+"txt").css("color","#dbbc49");
+            }
+        }else  if(item=="HUMI"){
+            if(itemValue >= 0&&itemValue < humiSet-10){
+               showtxt= "干燥";
+            $("#"+deviceID+"-"+item+"txt").css("color","#dbbc49");
+            }else if(itemValue >= humiSet-10 && itemValue <= humiSet+10){
+               showtxt= "舒适";
+            $("#"+deviceID+"-"+item+"txt").css("color","#92D050");
+            }else if(itemValue > humiSet+10){
+               showtxt= "潮湿";
+            $("#"+deviceID+"-"+item+"txt").css("color","#1E90FF");
+            }
+        }
+         $("#"+deviceID+"-"+item+"txt").text(showtxt)
+        
+    }
+    
+    //初始化显示框
+    function InitShowBoxSize() {
+        var myw = $("#showbox-0").width();
+        var myh = $("#showbox-0").height();
+
+        var qxw = $("#dynamic-showbox .quxian:first").width();
+        var qxh = $("#dynamic-showbox .quxian:first").height();
+
+        $("#dynamic-showbox .showbox").each(function () {
+            $(this).width(myw);
+            $(this).height(myh);
+        });
+
+        $("#dynamic-showbox .quxian").each(function () {
+            $(this).width(qxw);
+            $(this).height(qxh);
+        });
+    }
+
+    //获取数据
+    function getData(Scope){
+        $.ajax({
+            type: "GET",
+            url: "handle/getData.php?Scope=" + Scope,
+            dataType: "json",
+            success: function(data){
+                data = data.reverse();
+                CreateChart("plotarea", titles[Scope], data);
+            },
+            error: function(data){
+                console.log("获取数据信息出错");
+            }
+        })
+    }
+
+    //绘图
+    function CreateChart(container, titlename, json) {
+        var temp = new Highcharts.Chart({
+            chart: {
+                renderTo: container,
+                type: 'spline',
+                marginRight: 10,
+                borderWidth: 0,
+                backgroundColor: 'rgba(0,0,0,0)',
+                events: {
+                    load: function () { }
+                }
+            },
+            title: {
+                text: titlename + "-温湿度平均值",
+                style: {
+                    color: "#fff",
+                    fontSize: '25px'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: '时 间',
+                    style: {
+                        color: '#fff',//颜色
+                        fontSize: '16px',  //字体
+                        fontWeight: 'bold'
+                    }
+                },
+                type: 'datetime',
+                gridLineDashStyle: 'Dot',
+                gridLineColor: '#fff',
+                gridLineWidth: 1,
+                tickPixelInterval: 120,
+                style: {
+                    color: "#fff"
+                },
+                labels: {
+                    style: {
+                        color: '#fff',//颜色
+                        fontSize: '14px'  //字体
+                    }
+                },
+                dateTimeLabelFormats:{
+					second: '%H:%M:%S',
+					minute: '%e. %b %H:%M',
+					hour: '%b/%e %H:%M',
+					day: '%e日/%b',
+					week: '%e. %b',
+					month: '%b %y',
+					year: '%Y'
+				}
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature (\xB0C) & Humidity (%)'
+                },
+                labels: {
+                    style: {
+                        color: '#fff',//颜色
+                        fontSize: '18px'  //字体
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    var unit = this.series.name == "温度" ? "\xB0C" : "%";
+                    return '<b>' + this.series.name + '</b><br />' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br /><b>' + Highcharts.numberFormat(this.y, 2) + unit + "<\b>";
+                }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'right',
+                verticalAlign: 'top',
+                borderWidth: 0
+            },
+            exporting: {
+                enabled: false
+            },
+            plotOptions: {
+                spline: {
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            color: '#fff',//颜色
+                            fontSize: '14px'  //字体
+                        },
+                        formatter: function() {
+                            if(json.length > 30)
+                                return null;
+                            else
+                                return this.y;
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: '温度',
+                color: "#FF8C00",
+                data: (function () {
+                    data = [];
+                    for (var i = 0; i < json.length; i++) {
+                        var Time = new Date(json[i].Time);
+                        var AveTemp = parseFloat(json[i].AveTemp);
+                        data.push({
+                            x: Time.getTime(),
+                            y: Math.round(AveTemp*100)/100
+                        });
+                    }
+                    return data;
+                })()
+            },{
+                name: '湿度',
+                color: "#fff",
+                data: (function () {
+                    data = [];
+                    for (var i = 0; i < json.length; i++) {
+                        var Time = new Date(json[i].Time);
+                        var AveHumi = parseFloat(json[i].AveHumi);
+                        data.push({
+                            x: Time.getTime(),
+                            y: Math.round(AveHumi*100)/100
+                        });
+                    }
+                    return data;
+                })()
+            }]
+        });
+        return temp;
+    }
+</script>
+</body>
+</html>
