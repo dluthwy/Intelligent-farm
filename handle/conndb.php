@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "IFUser";
-$passwd = "IFAdmin";
+$username = "IFUserName";
+$passwd = "IFPassword";
 $dbname = "IntelligentFarming";
 
 //创建连接
